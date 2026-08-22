@@ -1,155 +1,333 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Spacelab</title>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-  <link rel="stylesheet" href="./css/styles.css">
-  <link rel="stylesheet" href="./css/stylesmine.css">
-  <script src="https://kit.fontawesome.com/d4da7b0831.js" crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elementos No Estructurales NSR-10 | Juan José Mármol Delgado</title>
+	  <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="./css/stylesmine.css">
+    <script src="https://kit.fontawesome.com/d4da7b0831.js" crossorigin="anonymous"></script>
+    <style>
+      .app-nsr10 {
+        width: 90%;
+        margin: 0 auto;
+      }
+      .nsr-card {
+        background-color: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        border-radius: 0.75rem;
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+      }
+      .nsr-card h5 {
+        color: #ff8181;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 1rem;
+      }
+      .nsr-card label {
+        color: #eaeaea;
+        font-size: 0.9rem;
+      }
+      .nsr-card .form-text {
+        color: #aeaeae;
+      }
+      .nsr-card .form-control,
+      .nsr-card .form-select {
+        background-color: rgba(0, 0, 0, 0.35);
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        color: #fff;
+      }
+      .nsr-card .form-control:focus,
+      .nsr-card .form-select:focus {
+        background-color: rgba(0, 0, 0, 0.5);
+        color: #fff;
+        border-color: #FD6262;
+        box-shadow: 0 0 0 0.2rem rgba(253, 98, 98, 0.25);
+      }
+      .nsr-result {
+        background-color: rgba(0, 0, 0, 0.35);
+        border-radius: 0.5rem;
+        padding: 0.75rem 1rem;
+        margin-bottom: 0.6rem;
+      }
+      .nsr-result .val {
+        font-size: 1.3rem;
+        font-weight: 700;
+        color: #fff;
+      }
+      .nsr-result .lbl {
+        font-size: 0.8rem;
+        color: #cfcfcf;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+      .nsr-fp-final {
+        background: linear-gradient(90deg, rgba(253,98,98,0.25), rgba(253,98,98,0.05));
+        border: 1px solid #FD6262;
+      }
+      .nsr-fp-final .val {
+        color: #FD6262;
+        font-size: 2rem;
+      }
+      .nsr-warning {
+        border-left: 4px solid #FD6262;
+        background-color: rgba(253, 98, 98, 0.08);
+        padding: 0.75rem 1rem;
+        border-radius: 0.35rem;
+        font-size: 0.9rem;
+        color: #f1c1c1;
+      }
+      .nsr-note {
+        font-size: 0.85rem;
+        color: #b8b8b8;
+      }
+      .nsr-eq {
+        font-family: 'Courier New', monospace;
+        background-color: rgba(0,0,0,0.4);
+        padding: 0.5rem 0.8rem;
+        border-radius: 0.35rem;
+        display: inline-block;
+        color: #ffd0d0;
+      }
+      .nsr-table th, .nsr-table td {
+        color: #e6e6e6;
+        vertical-align: middle;
+      }
+      .nsr-step-num {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        background: #FD6262;
+        color: #000;
+        font-weight: 700;
+        margin-right: 0.5rem;
+      }
+    </style>
 </head>
 <body>
-    
+
   <nav class="navbar navbar-expand-lg navbar-dark fixed-top p-0" id="menu">
     <div class="container-fluid fondo-sm">
-      <div class="logos-nav d-flex"> 
-          <a class="navbar-brand" href="https://www.univalle.edu.co">
-              <img src="./images/70_Rojo.jpg" alt="" width="45" class="uv-nav">
+      <div class="logos-nav">
+          <a class="navbar-brand text-white" href="index.html">
+              <span class="fw-bold">Juan José Mármol Delgado</span>
+              <span class="d-block small text-info" style="letter-spacing: 0.5px;">Ingeniero Civil · Especialista en Estructuras</span>
           </a>
-          <a class="navbar-brand" href="index.html">
-              <img src="./images/SpaceLAB TITULO.png" alt="" width="250" class="sp-nav pt-2">
-          </a>
-      </div>
-      <button class="navbar-toggler" 
-              type="button"  
-              data-bs-toggle="collapse" 
-              data-bs-target="#navbarSupportedContent" 
-              aria-controls="navbarSupportedContent" 
-              aria-expanded="false" 
-              aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse flex-lg justify-content-end" id="navbarSupportedContent">
-        <ul class="navbar-nav text-uppercase">
-          <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="index.html">Inicio</a>
-          </li>
-          <li class="nav-item">
-              <a class="nav-link" href="integrantes.html">Integrantes</a>
-          </li>
-          <li class="nav-item">
-              <a class="nav-link" href="proyectos.html">Proyectos</a>
-          </li>
-          <li class="nav-item">
-              <a class="nav-link" href="resultados.html">Resultados</a>
-          </li>
-          <li class="nav-item">
-              <a class="nav-link" href="contacto.html">Contacto</a>
-          </li>
-          <li class="nav-item">
-              <a class="nav-link" href="elementos-no-estructurales.html">App NSR-10</a>
-          </li>
-          <li class="nav-item dropdown ">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Idioma
-            </a>
-            <ul class="dropdown-menu">
-              <li>
-                <a class="dropdown-item" href="index.html">
-                <img src="./images/espana.png" alt="" width="25" class="uv-nav">
-                </a>
-              </li>
-              <li>
-                <a class="dropdown-item" href="en/index.html">
-                  <img src="./images/estados-unidos.png" alt="" width="25" class="uv-nav">
-                </a>
-              </li>
-            </ul>
-          </li>          
-        </ul>
       </div>
     </div>
   </nav>
 
+<!--APP ELEMENTOS NO ESTRUCTURALES NSR-10-->
 
-<!--SPACELAB-->
+<section class="cuerpo">
 
-
-<div class="fondo">
-  <div class="headertitulo w-100"></div>
-  <div class="d-flex justify-content-center align-items-end">
-    <img src="./images/SpaceLAB TITULO.png" class="logoSP rounded-5 animated bounceInLeft" style="animation-delay: 1s" alt=""> 
-  </div>
-
-
-<!--CARRUSEL-->
-
-
-<div id="carouselExampleIndicators" class="carousel slide carousel-width mx-auto animated bounceInLeft" data-bs-ride="carousel" style="animation-delay: 1s">
-  <div class="carousel-indicators">
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4" aria-label="Slide 5"class=""></button>
-  </div>
-  <div class="carousel-inner">
-    <div class="carousel-item active" data-bs-interval="10000">
-      <a href="./emavicong.html"><img src="./images/Paula Emavi.png" alt="Paula Cadena Emavi" class="d-block w-100"></a> 
+  <div class="container-fluid p-0 my-0 proyecto-sm">
+    <div class="headertitulo w-100"></div>
+    <div class="p-0 text-white w-90 mx-auto text-center d-flex align-items-end">
+      <h2 class="p-0 mb-2 textit">Diseño de Elementos No Estructurales — NSR-10, Título A, Capítulo A.9</h2>
     </div>
-    <div class="carousel-item" data-bs-interval="10000">
-      <a href="./emavicong.html"><img src="./images/Carlos_Emavi.png" alt="Carlos Patiño Emavi" class="d-block w-100"></a> 
-    </div>
-    <div class="carousel-item" data-bs-interval="10000">
-      <a href="./argentinacong.html"><img src="./images/Carlos Argentina.png" alt="Carlos Patiño Argentina" class="d-block w-100"></a>  
-    </div>
-    <div class="carousel-item" data-bs-interval="10000">
-      <a href="./argentinacong.html"><img src="./images/Paula Argentina.png" alt="Paula Cadena Argentina" class="d-block w-100"></a>  
-    </div>
-    <div class="carousel-item" data-bs-interval="10000">
-      <a href="./bogotacong.html"><img src="./images/Carlos Bogota.png" alt="Paula Cadena Argentina" class="d-block w-100"></a>  
-    </div>
-  </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
-</div>
-    
-  <!--QUIENES SOMOS-->
-<div class="cuerpo">
-  <div class="container-fluid p-0 mx-0 my-5 margin-sm mt-5">
-    <div class="row w-100 justify-content-center mx-0">
-      <div class="col-md-4 p-0 d-flex justify-content-center mt-5">
-        <img src="./images/IMG_5721.JPG" class="w-100 d-flex align-self-center rounded-5 imgsomos" alt="">
+
+    <div class="app-nsr10 text-white">
+
+      <p class="def mb-4">Esta herramienta calcula la fuerza sísmica horizontal de diseño <b class="text-info">F<sub>p</sub></b> para elementos no estructurales (particiones, fachadas, cielorrasos, parapetos, anclajes, equipos mecánicos y eléctricos, etc.), siguiendo la ecuación A.9.4-1 del Reglamento Colombiano de Construcción Sismo Resistente NSR-10. Complete los datos del sitio, de la edificación y del elemento; los resultados se actualizan automáticamente.</p>
+
+      <div class="nsr-warning mb-4">
+        <i class="fas fa-triangle-exclamation me-1"></i>
+        Herramienta de apoyo al cálculo, no sustituye la revisión de un ingeniero estructural ni el texto oficial de la NSR-10. Los coeficientes <b>a<sub>p</sub></b> y <b>R<sub>p</sub></b> prellenados por tipo de elemento son valores de partida <b>indicativos</b>: verifíquelos siempre contra la Tabla A.9.5-1 vigente antes de usar los resultados en un diseño real.
       </div>
-      <div class="col-md-6 p-0 d-flex justify-content-center mx-4 mt-md-5">
-        <div class="text-white w-90">
-          <h4 class="text-uppercase animated bounceInLeft text-center" style="animation-delay: 2s">Quienes somos</h4>
-          <p class="def animated bounceInLeft" style="animation-delay: 3s">El proyecto SPACELAB fue creado por el grupo de Investigación en Infraestructura Civil Inteligente y Resiliente (RISK) y se encarga de fomentar la investigación multidisciplinar e interinstitucional, enfocada en el desarrollo de nuevo conocimiento básico y aplicado que contribuya a la solución de problemas de infraestructura civil lunar.</p>
+
+      <form id="formNSR10" onsubmit="return false;">
+
+        <!-- PASO 1: SITIO Y EDIFICACION -->
+        <div class="nsr-card">
+          <h5><span class="nsr-step-num">1</span>Parámetros sísmicos del sitio y la edificación</h5>
+          <div class="row g-3">
+            <div class="col-md-3">
+              <label class="form-label">Grupo de uso</label>
+              <select id="grupoUso" class="form-select">
+                <option value="1.00" data-desempeno="Bajo">I — I = 1.00</option>
+                <option value="1.10" data-desempeno="Bueno">II — I = 1.10</option>
+                <option value="1.25" data-desempeno="Superior">III — I = 1.25</option>
+                <option value="1.50" data-desempeno="Superior">IV — I = 1.50</option>
+              </select>
+              <div class="form-text">Define el coeficiente de importancia I (A.2.5) y el grado de desempeño mínimo exigido a los elementos no estructurales (A.9.2).</div>
+            </div>
+            <div class="col-md-3">
+              <label class="form-label">Coeficiente de importancia, I</label>
+              <input type="number" step="0.01" id="coefI" class="form-control" value="1.00" readonly>
+              <div class="form-text">Desempeño mínimo requerido: <span id="desempenoMin" class="text-info fw-bold">Bajo</span></div>
+            </div>
+            <div class="col-md-3">
+              <label class="form-label">Aa (aceleración pico efectiva)</label>
+              <input type="number" step="0.01" min="0" id="Aa" class="form-control" value="0.15">
+            </div>
+            <div class="col-md-3">
+              <label class="form-label">Av (velocidad pico efectiva)</label>
+              <input type="number" step="0.01" min="0" id="Av" class="form-control" value="0.20">
+            </div>
+            <div class="col-md-3">
+              <label class="form-label">Fa (coef. amplificación, periodos cortos)</label>
+              <input type="number" step="0.01" min="0" id="Fa" class="form-control" value="1.20">
+            </div>
+            <div class="col-md-3">
+              <label class="form-label">Fv (coef. amplificación, periodos intermedios)</label>
+              <input type="number" step="0.01" min="0" id="Fv" class="form-control" value="1.60">
+            </div>
+            <div class="col-md-3">
+              <label class="form-label">h<sub>n</sub> — altura total de la edificación (m)</label>
+              <input type="number" step="0.1" min="0.1" id="hn" class="form-control" value="20">
+            </div>
+            <div class="col-md-3">
+              <label class="form-label">T — periodo fundamental de la edificación (s)</label>
+              <input type="number" step="0.01" min="0" id="periodoT" class="form-control" value="0.5">
+              <div class="form-text">Use el periodo del análisis modal, o el aproximado T<sub>a</sub> = C<sub>t</sub>·h<sub>n</sub><sup>α</sup> de A.4.2.</div>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-  </div>
-      
-  <!--HACEN PARTE-->
 
-  <div class="row w-85 d-flex justify-content-center align-items-center m-auto my-5">
-    <div class="col-md-2 p-0 bordelogo d-flex justify-content-center mx-0" style="height: 140px;">
-      <img src="./images/70_Rojo.jpg" alt="" class="d-block img-fluid p-2">
-    </div>
-    <div class="col-md-4 p-0 bordelogo d-flex justify-content-center mx-0" style="height: 140px;">
-      <img src="./images/risk.jpg" alt="" class="d-block img-fluid p-2">
-    </div>
-    <div class="col-md-4 p-0 bordelogo d-flex justify-content-center d-none d-md-flex mx-0" style="height: 140px;">
-      <img src="./images/SpaceLAB TITULO.png" alt="" class="d-none img-fluid d-md-block p-4">
+        <!-- PASO 2: ELEMENTO -->
+        <div class="nsr-card">
+          <h5><span class="nsr-step-num">2</span>Ubicación y datos del elemento no estructural</h5>
+          <div class="row g-3">
+            <div class="col-md-4">
+              <label class="form-label">h<sub>x</sub> — altura de apoyo del elemento (m)</label>
+              <input type="number" step="0.1" min="0" id="hx" class="form-control" value="10">
+              <div class="form-text">Medida desde la base de la edificación hasta el punto de anclaje del elemento.</div>
+            </div>
+            <div class="col-md-4">
+              <label class="form-label">W<sub>p</sub> — peso del elemento (kN)</label>
+              <input type="number" step="0.01" min="0" id="Wp" class="form-control" value="10">
+              <div class="form-text">1 kN ≈ 101.97 kgf.</div>
+            </div>
+            <div class="col-md-4">
+              <label class="form-label">Tipo de elemento (valores de partida)</label>
+              <select id="tipoElemento" class="form-select">
+                <option value="1.0|2.5">Muro divisorio de altura completa, anclado arriba y abajo</option>
+                <option value="1.0|1.5">Muro/mampostería en voladizo, apoyado solo en la base</option>
+                <option value="1.0|2.5">Fachada o panel prefabricado con conexión dúctil</option>
+                <option value="1.0|1.5">Fachada o panel prefabricado con conexión rígida/frágil</option>
+                <option value="2.5|1.5">Parapeto, remate o elemento en voladizo sobre la cubierta</option>
+                <option value="1.0|1.5">Cielo raso suspendido</option>
+                <option value="1.0|0.5">Anclaje con mortero/adhesivo, sin conector mecánico a tensión</option>
+                <option value="1.0|1.5">Anclaje mecánico dúctil a tensión</option>
+                <option value="1.0|1.5">Equipo mecánico o eléctrico anclado rígidamente</option>
+                <option value="2.5|1.5">Equipo con aislamiento de vibración</option>
+                <option value="1.0|1.5">Tuberías, ductos o bandejas con arriostramiento sísmico</option>
+                <option value="1.0|1.0" selected>Otro / definir manualmente</option>
+              </select>
+            </div>
+            <div class="col-md-3">
+              <label class="form-label">a<sub>p</sub> — amplificación dinámica</label>
+              <input type="number" step="0.1" min="1" max="2.5" id="ap" class="form-control" value="1.0">
+            </div>
+            <div class="col-md-3">
+              <label class="form-label">R<sub>p</sub> — capacidad de disipación de energía</label>
+              <input type="number" step="0.1" min="0.5" id="Rp" class="form-control" value="1.0">
+            </div>
+            <div class="col-md-6 d-flex align-items-end">
+              <div class="nsr-note">a<sub>p</sub> y R<sub>p</sub> se autocompletan al elegir un tipo de elemento; puede editarlos con el valor exacto de la Tabla A.9.5-1 para el grado de desempeño de su proyecto.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PASO 3: RESULTADOS -->
+        <div class="nsr-card">
+          <h5><span class="nsr-step-num">3</span>Resultados — Espectro y fuerza sísmica de diseño</h5>
+
+          <div class="row g-3 mb-2">
+            <div class="col-6 col-md-3">
+              <div class="nsr-result text-center">
+                <div class="val" id="outTc">-</div>
+                <div class="lbl">T<sub>C</sub> (s)</div>
+              </div>
+            </div>
+            <div class="col-6 col-md-3">
+              <div class="nsr-result text-center">
+                <div class="val" id="outTL">-</div>
+                <div class="lbl">T<sub>L</sub> (s)</div>
+              </div>
+            </div>
+            <div class="col-6 col-md-3">
+              <div class="nsr-result text-center">
+                <div class="val" id="outAs">-</div>
+                <div class="lbl">A<sub>s</sub> = A<sub>a</sub>F<sub>a</sub>I (g)</div>
+              </div>
+            </div>
+            <div class="col-6 col-md-3">
+              <div class="nsr-result text-center">
+                <div class="val" id="outSa">-</div>
+                <div class="lbl">S<sub>a</sub>(T) (g)</div>
+              </div>
+            </div>
+            <div class="col-6 col-md-3">
+              <div class="nsr-result text-center">
+                <div class="val" id="outHeq">-</div>
+                <div class="lbl">h<sub>eq</sub> = 0.75h<sub>n</sub> (m)</div>
+              </div>
+            </div>
+            <div class="col-6 col-md-3">
+              <div class="nsr-result text-center">
+                <div class="val" id="outAx">-</div>
+                <div class="lbl">a<sub>x</sub> (g)</div>
+              </div>
+            </div>
+            <div class="col-6 col-md-3">
+              <div class="nsr-result text-center">
+                <div class="val" id="outFpCalc">-</div>
+                <div class="lbl">F<sub>p</sub> calculado (kN)</div>
+              </div>
+            </div>
+            <div class="col-6 col-md-3">
+              <div class="nsr-result text-center">
+                <div class="val" id="outFpMin">-</div>
+                <div class="lbl">F<sub>p,min</sub> = I·W<sub>p</sub>/2 (kN)</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="nsr-result nsr-fp-final text-center mb-3">
+            <div class="lbl">Fuerza sísmica de diseño gobernante, F<sub>p</sub></div>
+            <div class="val" id="outFpFinal">-</div>
+            <div class="lbl" id="outFpFinalKgf">-</div>
+          </div>
+
+          <p class="nsr-note mb-1">Ecuación aplicada:</p>
+          <p class="mb-0"><span class="nsr-eq">F<sub>p</sub> = a<sub>x</sub> · a<sub>p</sub> · W<sub>p</sub> / R<sub>p</sub> &nbsp;≥&nbsp; F<sub>p,min</sub> = I · W<sub>p</sub> / 2</span></p>
+        </div>
+
+        <!-- REFERENCIA -->
+        <div class="nsr-card">
+          <h5><span class="nsr-step-num">i</span>Referencia — Grado de desempeño mínimo por grupo de uso (A.9.2)</h5>
+          <div class="table-responsive">
+            <table class="table table-dark table-borderless nsr-table mb-2">
+              <thead>
+                <tr><th>Grupo de uso</th><th>I</th><th>Grado de desempeño mínimo</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>IV — Edificaciones indispensables</td><td>1.50</td><td>Superior</td></tr>
+                <tr><td>III — Atención a la comunidad</td><td>1.25</td><td>Superior</td></tr>
+                <tr><td>II — Ocupación especial</td><td>1.10</td><td>Bueno</td></tr>
+                <tr><td>I — Ocupación normal</td><td>1.00</td><td>Bajo</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="nsr-note mb-1"><b>Superior:</b> el daño en los elementos no estructurales es mínimo y no interfiere con la operación de la edificación durante el sismo de diseño.</p>
+          <p class="nsr-note mb-1"><b>Bueno:</b> el daño es totalmente reparable y puede haber alguna interferencia con la operación de la edificación.</p>
+          <p class="nsr-note mb-0"><b>Bajo:</b> se admite daño mayor, siempre que no se ponga en riesgo la vida ni se generen elementos que puedan caer y causar lesiones.</p>
+        </div>
+
+        <div class="nsr-warning">
+          Adicional a la fuerza F<sub>p</sub>, la NSR-10 exige verificar (A.9.5) que los elementos no estructurales y sus anclajes puedan acomodar la deriva relativa de diseño de la edificación sin perder su integridad ni su capacidad de soportar cargas verticales, en particular cuando el elemento está apoyado o conectado en dos niveles distintos.
+        </div>
+
+      </form>
     </div>
   </div>
 
@@ -161,20 +339,17 @@
       <div class="row d-flex justify-content-center">
         <div class="col p-0">
           <div class="col text-white text-center">
-            <img src="./images/SpaceLAB TITULO.png" width="500" alt="" class="sp-footer">
-            <p>Daniel Gómez Pizano</p>
-            <p>daniel.gomez@correounivalle.edu.co</p>
-            <p>Universidad del Valle</p>
-            <p>Cali, Colombia</p>
+            <h4 class="mb-2">Juan José Mármol Delgado</h4>
+            <p>Ingeniero Civil — Especialista en Estructuras</p>
           </div>
         </div>
       </div>
     </div>
     <footer>
-      <p class="text-white text-center">© Copyright 2023 - SPACELAB. Todos los derechos reservados.</p>
+      <p class="text-white text-center">© 2026 Juan José Mármol Delgado. Todos los derechos reservados.</p>
     </footer>
   </div>
-</div>
+</section>
 
 <!--BACKTOTOP-->
 
@@ -182,8 +357,16 @@
   <i class="fas fa-arrow-up"></i>
 </button>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+<!--PREVIEW-->
+
+<button type="button" class="btn btn-danger btn-floating btn-return">
+  <i class="fas fa-arrow-left"></i>
+</button>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
   <script src="javascr.js"></script>
+  <script src="js/elementos-no-estructurales.js"></script>
 </body>
 </html>
-
